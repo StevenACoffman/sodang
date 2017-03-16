@@ -39,7 +39,7 @@ const Bar = styled.i`
 `;
 
 const UnstyledSelect = (props) => {
-const { input={}, className="", ariaLabel="", role="", tabIndex, options=[]} = props;
+const { input={}, className="", ariaLabel="", role="", tabIndex=0, options=[]} = props;
     return (
     <select className={className} role={role} aria-label={ariaLabel} tabIndex={tabIndex} {...input}>
       <option value="" disabled selected hidden>Select a {ariaLabel}...</option>
@@ -63,7 +63,7 @@ box-sizing: border-box;
   line-height: 1.6;
   box-shadow: none;
   color: #333;
-  :focus {
+  &:focus {
     outline: none;
   }
 `;
