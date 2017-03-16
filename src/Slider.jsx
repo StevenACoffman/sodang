@@ -180,4 +180,5 @@ margin: 18px 0;
   outline: 2px solid #ebebeb;
   background-color: #ebebeb; }
 `;
+
 export default Slider;

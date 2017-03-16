@@ -39,9 +39,9 @@ const Bar = styled.i`
 `;
 
 const UnstyledSelect = (props) => {
-const { input={}, className="", ariaLabel="", role="", options=[]} = props;
+const { input={}, className="", ariaLabel="", role="", tabIndex, options=[]} = props;
     return (
-    <select className={className} role={role} aria-label={ariaLabel} {...input}>
+    <select className={className} role={role} aria-label={ariaLabel} tabIndex={tabIndex} {...input}>
       <option value="" disabled selected hidden>Select a {ariaLabel}...</option>
       {options.map(currentOption => <option value={currentOption.value} key={currentOption.value}>{currentOption.label}</option>)}
     </select>

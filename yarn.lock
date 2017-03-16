@@ -4511,6 +4511,12 @@ requires-port@1.0.x, requires-port@1.x.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
 
+reshake@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/reshake/-/reshake-1.0.6.tgz#48b9866870ef915ee44f3a61fc7d5d7f75492f63"
+  dependencies:
+    styled-components "^1.1.2"
+
 resolve-from@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-1.0.1.tgz#26cbfe935d1aeeeabb29bc3fe5aeb01e93d44226"
@@ -4860,7 +4866,7 @@ style-loader@0.13.1:
   dependencies:
     loader-utils "^0.2.7"
 
-styled-components@^1.4.4:
+styled-components@^1.1.2, styled-components@^1.4.4:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-1.4.4.tgz#c944de423d8ae2363f2ba4ff8fc26d367e7dfa8f"
   dependencies:
