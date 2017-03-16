@@ -24,16 +24,19 @@ const SimpleForm = (props) => {
     <form onSubmit={handleSubmit}>
 
       <div>
-        <Field ariaLabel="Team" role="button" name="favoriteTeam" tabIndex="1"  options={TEAMS} component={SelectFormGroup}/>
+        <Field label="Team" defaultValue="" role="button" name="favoriteTeam" tabIndex="0" required="true" options={TEAMS} component={SelectFormGroup}/>
       </div>
       <div>
-        <Field type="range" name="specialness" min="0" max="100" defaultValue="50" aria-valuenow="50" tabIndex="2" component={Slider}/>
+        <Field type="range" label="Specialness" name="specialness" min="0" max="100" defaultValue="50" aria-valuenow="50" tabIndex="0" component={Slider}/>
       </div>
       <div>
-        <Field type="range" name="awesomeSauce" min="0" max="100" defaultValue="50" aria-valuenow="50" tabIndex="3" component={Slider}/>
+        <Field type="range" label="AwesomeSauce" name="awesomeSauce" min="0" max="100" defaultValue="50" aria-valuenow="50" tabIndex="0" component={Slider}/>
       </div>
       <div>
-        <Button type="submit" disabled={pristine || submitting}>Submit</Button>
+        <Field type="range" label="Shortness" name="shortness" min="0" max="100" defaultValue="50" aria-valuenow="50" tabIndex="0" component={Slider}/>
+      </div>
+      <div>
+        <Button type="submit" role="button" name="something" value="Submit" tabIndex="0" disabled={pristine}>Submit</Button>
       </div>
     </form>
   )

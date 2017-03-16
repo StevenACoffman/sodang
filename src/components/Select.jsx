@@ -1,25 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import ControlLabel from './ControlLabel';
 
-const ControlLabel = styled.label`
-    position: absolute;
-    pointer-events: none;
-    padding-left: 0.125rem;
-    box-sizing: border-box;
-    z-index: 1;
-    color: #b3b3b3;
-    font-size: 1rem;
-    font-weight: normal;
-    font-family: 'Roboto', sans-serif;
-    -webkit-transition: all 0.28s ease;
-    transition: all 0.28s ease;
-    font-size: 0.8rem;
-    left: 0;
-    top: -1rem;
-    &::after, $::before {
-      box-sizing: border-box;
-    }
-`;
 const Bar = styled.i`
     position: relative;
     border-bottom: 0.0625rem solid #999;
@@ -42,7 +24,7 @@ const UnstyledSelect = (props) => {
 const { input={}, className="", ariaLabel="", role="", tabIndex=0, options=[]} = props;
     return (
     <select className={className} role={role} aria-label={ariaLabel} tabIndex={tabIndex} {...input}>
-      <option value="" disabled selected hidden>Select a {ariaLabel}...</option>
+      <option value="" disabled hidden>Select a {ariaLabel}...</option>
       {options.map(currentOption => <option value={currentOption.value} key={currentOption.value}>{currentOption.label}</option>)}
     </select>
 )};
@@ -68,13 +50,35 @@ box-sizing: border-box;
   }
 `;
 
-const UnstyledSelectFormGroup = (props) => (
+const RequiredError = styled.span`
+position: absolute;
+pointer-events: none;
+padding-left: 0.125rem;
+box-sizing: border-box;
+z-index: 1;
+color: #d32f2f;
+font-size: 1rem;
+font-weight: normal;
+font-family: 'Roboto', sans-serif;
+-webkit-transition: all 0.28s ease;
+transition: all 0.28s ease;
+font-size: 0.8rem;
+left: 0;
+&::after, $::before {
+  box-sizing: border-box;
+}
+`;
+
+const UnstyledSelectFormGroup = (props) => {
+    console.error(props);
+    return(
     <div className={props.className}>
-      <ControlLabel htmlFor="select" className={undefined}>Selectbox</ControlLabel>
-      <Select {...props} className={undefined}/>
+      <ControlLabel htmlFor="select" className={undefined}>{props.label || "SelectBox"}</ControlLabel>
+      <Select ariaLabel={props.label} {...props} className={undefined}/>
       <Bar/>
+      {props.required && props.input && !props.input.value && <RequiredError>This field is required</RequiredError>}
     </div>
-)
+)}
 
 const SelectFormGroup = styled(UnstyledSelectFormGroup)`
     position: relative;

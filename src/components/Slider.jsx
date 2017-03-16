@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ControlLabel from './ControlLabel';
 
 const Slider = styled.input`
 -webkit-appearance: none;
@@ -123,22 +124,22 @@ margin: 18px 0;
   border: 2px solid rgba(0, 0, 0, 0.26);
   background-color: #ebebeb; }
 &:active::-webkit-slider-runnable-track {
-  background-color: #ffa441; }
+  background-color: #2196F3; }
 &:active::-moz-range-track {
-  background: #ffa441;
-  background-color: #ffa441; }
+  background: #2196F3;
+  background-color: #2196F3; }
 &:active::-ms-track, &:active::-ms-fill-lower, &:active::-ms-fill-upper {
-  background: #ffa441;
-  background-color: #ffa441; }
+  background: #2196F3;
+  background-color: #2196F3; }
 &:active::-webkit-slider-thumb {
-  border: 4px solid #ffa441;
-  background-color: #ffa441; }
+  border: 4px solid #2196F3;
+  background-color: #2196F3; }
 &:active::-moz-range-thumb {
-  border: 4px solid #ffa441;
-  background-color: #ffa441; }
+  border: 4px solid #2196F3;
+  background-color: #2196F3; }
 &:active::-ms-thumb {
-  border: 4px solid #ffa441;
-  background-color: #ffa441; }
+  border: 4px solid #2196F3;
+  background-color: #2196F3; }
 &:disabled::-webkit-slider-runnable-track {
   background-color: rgba(0, 0, 0, 0.26); }
 &:disabled::-moz-range-track {
@@ -181,4 +182,22 @@ margin: 18px 0;
   background-color: #ebebeb; }
 `;
 
-export default Slider;
+
+const UnstyledSliderFormGroup = (props) => (
+    <div className={props.className}>
+      <ControlLabel htmlFor="select" className={undefined}>{props.label || "Slider"}</ControlLabel>
+      <Slider type="range" ariaLabel={props.label} {...props} className={undefined}/>
+    </div>
+)
+
+const SliderFormGroup = styled(UnstyledSliderFormGroup)`
+    position: relative;
+    margin-top: 2.25rem;
+    margin-bottom: 2.25rem;
+    box-sizing: border-box;
+    &::after, $::before {
+      box-sizing: border-box;
+    }
+`;
+
+export default SliderFormGroup;
