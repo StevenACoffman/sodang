@@ -1,5 +1,5 @@
 //import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
 const ripple = keyframes`
   0% {
@@ -28,7 +28,7 @@ const Button = styled.button`
     overflow: hidden;
     &:disabled {
         color: rgba(0, 0, 0, 0.26);
-          background-color: rgba(0, 0, 0, 0.12);
+        background-color: rgba(0, 0, 0, 0.12);
     }
     &::after {
         content: '';
@@ -46,7 +46,7 @@ const Button = styled.button`
     &:focus:not(:active)::after {
         animation: ${ripple} 1s ease-out;
     }
-`
+`;
 /*
 const Button = styled.input`
 color: #414141;

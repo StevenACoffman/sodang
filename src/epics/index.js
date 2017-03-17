@@ -2,12 +2,12 @@ import { Observable } from "rxjs";
 import * as actionType from "../actions/actionTypes";
 import {fetchSaveOutline} from "../actions";
 import {connect} from "react-redux";
-import { combineEpics } from 'redux-observable';
+import { combineEpics } from "redux-observable";
 
 
 const rootEpic = action$ =>
-  action$.filter(action => action.type === 'PING')
-    .mapTo({ type: 'PONG' });
+  action$.filter(action => action.type === "PING")
+    .mapTo({ type: "PONG" });
 
 /*
 const logEpic = (action$) => {

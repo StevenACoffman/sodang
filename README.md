@@ -1,3 +1,34 @@
+Install recent node if not already done:
+```bash
+curl -o- https://raw.github.com/creationix/nvm/master/install.sh | bash
+source ~/.bashrc
+nvm install 7
+npm install yarn
+```
+
+Create nice application:
+```
+yarn global add create-react-app
+APP_NAME=MyCoolApp
+create-react-app "${APP_NAME}"
+cd "${APP_NAME}"
+
+#Always need this stuff:
+yarn add redux react-redux redux-observable rxjs
+
+#Add testing bits
+yarn add jest enzyme react-addons-test-utils jest-enzyme --dev
+
+# Static app recommended
+yarn add react-helmet redux-form
+
+#App specific components
+yarn add hedron reshake
+```
+
+
+
+---
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

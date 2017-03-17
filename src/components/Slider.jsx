@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import ControlLabel from './ControlLabel';
+import React from "react";
+import styled from "styled-components";
+import ControlLabel from "./ControlLabel";
 
 const Slider = styled.input`
 -webkit-appearance: none;
@@ -185,10 +185,10 @@ margin: 18px 0;
 
 const UnstyledSliderFormGroup = (props) => (
     <div className={props.className}>
-      <ControlLabel htmlFor="select" className={undefined}>{props.label || "Slider"}</ControlLabel>
-      <Slider type="range" ariaLabel={props.label} {...props} className={undefined}/>
+        <ControlLabel htmlFor="select" className={undefined}>{props.label || "Slider"}</ControlLabel>
+        <Slider type="range" ariaLabel={props.label} {...props} className={undefined}/>
     </div>
-)
+);
 
 const SliderFormGroup = styled(UnstyledSliderFormGroup)`
     position: relative;

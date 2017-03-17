@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import ControlLabel from './ControlLabel';
+import React from "react";
+import styled from "styled-components";
+import ControlLabel from "./ControlLabel";
 
 const Bar = styled.i`
     position: relative;
@@ -21,13 +21,13 @@ const Bar = styled.i`
 `;
 
 const UnstyledSelect = (props) => {
-const { input={}, className="", ariaLabel="", role="", tabIndex=0, options=[]} = props;
+    const { input={}, className="", ariaLabel="", role="", tabIndex=0, options=[]} = props;
     return (
-    <select className={className} role={role} aria-label={ariaLabel} tabIndex={tabIndex} {...input}>
-      <option value="" disabled hidden>Select a {ariaLabel}...</option>
-      {options.map(currentOption => <option value={currentOption.value} key={currentOption.value}>{currentOption.label}</option>)}
-    </select>
-)};
+        <select className={className} role={role} aria-label={ariaLabel} tabIndex={tabIndex} {...input}>
+            <option value="" disabled hidden>Select a {ariaLabel}...</option>
+            {options.map(currentOption => <option value={currentOption.value} key={currentOption.value}>{currentOption.label}</option>)}
+        </select>
+    );};
 
 
 const Select = styled(UnstyledSelect)`
@@ -72,13 +72,13 @@ left: 0;
 const UnstyledSelectFormGroup = (props) => {
     console.error(props);
     return(
-    <div className={props.className}>
-      <ControlLabel htmlFor="select" className={undefined}>{props.label || "SelectBox"}</ControlLabel>
-      <Select ariaLabel={props.label} {...props} className={undefined}/>
-      <Bar/>
-      {props.required && props.input && !props.input.value && <RequiredError>This field is required</RequiredError>}
-    </div>
-)}
+        <div className={props.className}>
+            <ControlLabel htmlFor="select" className={undefined}>{props.label || "SelectBox"}</ControlLabel>
+            <Select ariaLabel={props.label} {...props} className={undefined}/>
+            <Bar/>
+            {props.required && props.input && !props.input.value && <RequiredError>This field is required</RequiredError>}
+        </div>
+    );};
 
 const SelectFormGroup = styled(UnstyledSelectFormGroup)`
     position: relative;
