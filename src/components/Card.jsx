@@ -1,6 +1,4 @@
-import React from "react";
 import styled from "styled-components";
-
 
 const Card = styled.div`
   width: 100%;
@@ -37,21 +35,5 @@ const Card = styled.div`
           transform: scale(1);
 }
 `;
-/*
-padding: 15px;
-
-border-radius: 0;
-background-color: #FFF;
-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0px 2px 0 rgba(0, 0, 0, 0.12);
-}
-
-.mui-form:before, .mui-form:after {
-content: " ";
-display: table;
-}
-
-.mui-form:after {
-clear: both;
-*/
 
 export default Card;

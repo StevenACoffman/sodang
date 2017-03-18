@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import styled from "styled-components";
 import ControlLabel from "./ControlLabel";
 
@@ -183,14 +183,29 @@ margin: 18px 0;
 `;
 
 
+Slider.propTypes = {
+    id: PropTypes.string.isRequired,
+    key: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
+};
+
 const UnstyledSliderFormGroup = (props) => {
     const sliderId = "slider-"+(props.className || "no-class");
     return (
-    <div className={props.className}>
-        <ControlLabel htmlFor={sliderId} className={undefined}>{props.label || "Slider"}</ControlLabel>
-        <Slider id={sliderId} key={sliderId} value={props.input.value} onChange={props.input.onChange} type="range" ariaLabel={props.label} {...props} className={undefined}/>
-    </div>
-)};
+        <div className={props.className}>
+            <ControlLabel htmlFor={sliderId} className={undefined}>{props.label || "Slider"}</ControlLabel>
+            <Slider id={sliderId} key={sliderId} value={props.input.value} onChange={props.input.onChange} type="range" ariaLabel={props.label} {...props} className={undefined}/>
+        </div>
+    );
+};
+UnstyledSliderFormGroup.propTypes = {
+    className: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    input: PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        onChange: PropTypes.func.isRequired
+    }).isRequired
+};
 
 const SliderFormGroup = styled(UnstyledSliderFormGroup)`
     position: relative;

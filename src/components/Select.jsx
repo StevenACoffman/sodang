@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import styled from "styled-components";
 import ControlLabel from "./ControlLabel";
 
@@ -21,14 +21,25 @@ const Bar = styled.i`
 `;
 
 const UnstyledSelect = (props) => {
-    const { input={}, className="", ariaLabel="", role="", tabIndex=0, options=[]} = props;
+    const { input={}, className="", label="", role="", tabIndex=0, options=[]} = props;
     return (
-        <select className={className} role={role} aria-label={ariaLabel} tabIndex={tabIndex} {...input}>
-            <option value="" disabled hidden>Select a {ariaLabel}...</option>
+        <select className={className} role={role} aria-label={label} tabIndex={tabIndex} {...input}>
+            <option value="" disabled hidden>Select a {label}...</option>
             {options.map(currentOption => <option value={currentOption.value} key={currentOption.value}>{currentOption.label}</option>)}
         </select>
-    );};
-
+    );
+};
+UnstyledSelect.propTypes = {
+    id: PropTypes.string.isRequired,
+    key: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    options: PropTypes.arrayOf(PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+        className: PropTypes.string.isRequired
+    })),
+    onChange: PropTypes.func.isRequired
+};
 
 const Select = styled(UnstyledSelect)`
 font-family: 'Roboto', sans-serif;
@@ -69,17 +80,28 @@ left: 0;
 }
 `;
 
+
 const UnstyledSelectFormGroup = (props) => {
     const selectId = "select-"+(props.className || "no-class");
     return(
         <div className={props.className}>
             {props.children}
             <ControlLabel htmlFor={selectId} className={undefined}>{props.label || "SelectBox"}</ControlLabel>
-            <Select key={selectId} id={selectId} ariaLabel={props.label} {...props} className={undefined}/>
+            <Select key={selectId} id={selectId} label={props.label} {...props} className={undefined}/>
             <Bar/>
             {props.required && props.input && !props.input.value && <RequiredError>This field is required</RequiredError>}
         </div>
-    );};
+    );
+};
+
+UnstyledSelectFormGroup.propTypes = {
+    className: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    input: PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        onChange: PropTypes.func.isRequired
+    }).isRequired
+};
 
 const SelectFormGroup = styled(UnstyledSelectFormGroup)`
     position: relative;
