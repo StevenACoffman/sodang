@@ -183,12 +183,14 @@ margin: 18px 0;
 `;
 
 
-const UnstyledSliderFormGroup = (props) => (
+const UnstyledSliderFormGroup = (props) => {
+    const sliderId = "slider-"+(props.className || "no-class");
+    return (
     <div className={props.className}>
-        <ControlLabel htmlFor="select" className={undefined}>{props.label || "Slider"}</ControlLabel>
-        <Slider type="range" ariaLabel={props.label} {...props} className={undefined}/>
+        <ControlLabel htmlFor={sliderId} className={undefined}>{props.label || "Slider"}</ControlLabel>
+        <Slider id={sliderId} key={sliderId} value={props.input.value} onChange={props.input.onChange} type="range" ariaLabel={props.label} {...props} className={undefined}/>
     </div>
-);
+)};
 
 const SliderFormGroup = styled(UnstyledSliderFormGroup)`
     position: relative;

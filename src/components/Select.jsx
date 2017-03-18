@@ -70,11 +70,12 @@ left: 0;
 `;
 
 const UnstyledSelectFormGroup = (props) => {
-    console.error(props);
+    const selectId = "select-"+(props.className || "no-class");
     return(
         <div className={props.className}>
-            <ControlLabel htmlFor="select" className={undefined}>{props.label || "SelectBox"}</ControlLabel>
-            <Select ariaLabel={props.label} {...props} className={undefined}/>
+            {props.children}
+            <ControlLabel htmlFor={selectId} className={undefined}>{props.label || "SelectBox"}</ControlLabel>
+            <Select key={selectId} id={selectId} ariaLabel={props.label} {...props} className={undefined}/>
             <Bar/>
             {props.required && props.input && !props.input.value && <RequiredError>This field is required</RequiredError>}
         </div>

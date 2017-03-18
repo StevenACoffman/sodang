@@ -3,11 +3,30 @@ import * as actionType from "../actions/actionTypes";
 import {fetchSaveOutline} from "../actions";
 import {connect} from "react-redux";
 import { combineEpics } from "redux-observable";
+import { ajax } from 'rxjs/observable/dom/ajax';
 
 
 const rootEpic = action$ =>
   action$.filter(action => action.type === "PING")
     .mapTo({ type: "PONG" });
+
+const FETCH_USER = 'FETCH_USER';
+const FETCH_USER_FULFILLED = 'FETCH_USER_FULFILLED';
+const FETCH_USER_REJECTED = 'FETCH_USER_REJECTED';
+
+const fetchUser = id => ({ type: FETCH_USER, payload: id });
+const fetchUserFulfilled = payload => ({ type: FETCH_USER_FULFILLED, payload });
+const fetchUserRejected = payload => ({ type: FETCH_USER_REJECTED, payload, error: true });
+
+const fetchUserEpic = action$ =>
+  action$.ofType(FETCH_USER)
+    .mergeMap(action =>
+      ajax({url:`/api/users/${action.payload}`, method:"POST"})
+        .map(response => fetchUserFulfilled(response))
+        .catch(error => Observable.of(
+          fetchUserRejected(error.xhr.response)
+        ))
+    );
 
 /*
 const logEpic = (action$) => {

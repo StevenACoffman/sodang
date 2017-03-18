@@ -6,6 +6,7 @@ import SimpleForm from "./components/SimpleForm.js";
 import store from "./containers/store";
 import { ThemeProvider } from "styled-components";
 import colors from "./components/colors";
+import Upholstery from "./components/Upholstery";
 
 const showResults = values =>
   new Promise(resolve => {
@@ -20,11 +21,7 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <ThemeProvider theme={{ color: "mediumseagreen" }}>
-                    <div className="app">
-                        <h2>Form</h2>
-                        <SimpleForm onSubmit={showResults}/>
-
-                    </div>
+                    <SimpleForm onSubmit={showResults}/>
                 </ThemeProvider>
             </Provider>
         );

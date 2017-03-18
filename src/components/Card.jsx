@@ -5,14 +5,16 @@ import styled from "styled-components";
 const Card = styled.div`
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 30px;
+
+  padding: 3rem 5rem 0;
+  padding: 15px;
   position: relative;
   max-width: 40rem;
   margin: 5rem auto;
+  margin-bottom: 20px;
   background: #fff;
   width: 100%;
-  padding: 3rem 5rem 0;
+
   border-radius: 1px;
 &::before {
   content: '';
@@ -35,5 +37,21 @@ const Card = styled.div`
           transform: scale(1);
 }
 `;
+/*
+padding: 15px;
+
+border-radius: 0;
+background-color: #FFF;
+box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0px 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.mui-form:before, .mui-form:after {
+content: " ";
+display: table;
+}
+
+.mui-form:after {
+clear: both;
+*/
 
 export default Card;
