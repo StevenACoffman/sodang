@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Simple Flask Webapp{% endblock %}
+{% block content %}
+<h2>Simple Flask Webapp</h2>
+<p>
+    This is a demonstration of a web application written in Python on the Flask<br>
+    web framework and executed in an Apache web server via mod_wsgi.
+</p>
+<a href="https://github.com/ithaka/cypress-apps/simple_flask">Source Code</a>
+<h4>Running on:</h4>
+<ul>
+    <li>Flask:  {{ flask }}
+    <li>Python:  {{ python }}
+</ul>
+<a href="http://flask.pocoo.org/">Flask Project</a>
+
+{% endblock %}

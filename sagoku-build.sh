@@ -23,9 +23,11 @@ xz -dc node-${NODE_VERSION}-linux-x64.tar.xz | tar xf - -C /usr/local/
 export PATH=$PATH:/usr/local/node-${NODE_VERSION}-linux-x64/bin
 
 mkdir -p ${SRC_DIR}/build
-npm install
+npm install -g yarn
+#npm install
+yarn install
 
-REACT_APP_SGK_ENVIRONMENT=$SGK_ENVIRONMENT npm run build
+REACT_APP_SGK_ENVIRONMENT=$SGK_ENVIRONMENT yarn build
 
 rsync -a ${SRC_DIR}/build/* ${BUILD_DIR}/
 ls -la ${SRC_DIR}/build/

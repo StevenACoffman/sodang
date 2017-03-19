@@ -17,16 +17,16 @@ const SimpleForm = (props) => {
                     <legend>Show and Tell Feedback</legend>
                     <Divider/>
                     <div>
-                        <Field label="Team" defaultValue="" role="button" name="favoriteTeam" tabIndex="0" required="true" options={TEAMS} component={SelectFormGroup}/>
+                        <Field label="Team" name="team" defaultValue="" role="button" tabIndex="0" required="true" options={TEAMS} component={SelectFormGroup}/>
                     </div>
                     <div>
-                        <Field type="range" label="Specialness" name="specialness" min="0" max="100" tabIndex="0" component={SliderFormGroup}/>
+                        <Field type="range" label="Relevance" name="relevance" min="0" max="100" tabIndex="0" component={SliderFormGroup}/>
                     </div>
                     <div>
-                        <Field type="range" label="AwesomeSauce" name="awesomeSauce" min="0" max="100" tabIndex="0" component={SliderFormGroup}/>
+                        <Field type="range" label="Excitement" name="excitement" min="0" max="100" tabIndex="0" component={SliderFormGroup}/>
                     </div>
                     <div>
-                        <Field type="range" label="Shortness" name="shortness" min="0" max="100" tabIndex="0" component={SliderFormGroup}/>
+                        <Field type="range" label="Succinctness" name="succinctness" min="0" max="100" tabIndex="0" component={SliderFormGroup}/>
                     </div>
                     <div>
                         <Button type="submit" role="button" name="something" value="Submit" tabIndex="0" disabled={pristine}>Submit</Button>
