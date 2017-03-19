@@ -12,5 +12,5 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-
+// initial state load dispatch would be most appropriate to put here.
 //store.dispatch(fetchListItems("70822"));
