@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PropTypes} from "react";
 import { Field, reduxForm } from "redux-form";
 import {TEAMS} from "../data";
 import SelectFormGroup from "./Select";
@@ -6,28 +6,16 @@ import SliderFormGroup from "./Slider";
 import Button from "./Button";
 import Card from "./Card";
 import Divider from "./Divider";
-import {Shake, ShakeSlow} from "reshake";
-import styled from "styled-components";
 
-
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
-    <div>
-        <label>{label}</label>
-        <div>
-            <input {...input} placeholder={label} type={type}/>
-            {touched && error && <span>{error}</span>}
-        </div>
-    </div>
-);
-
-let SimpleForm = (props) => {
+const SimpleForm = (props) => {
     //Caution: handleSubmit is redux-form wrapped version of parent passed onSubmit prop
-    const { handleSubmit, pristine, reset, submitting, dispatch} = props;
+    const { handleSubmit, pristine} = props;
     return (
         <Card>
             <form onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>Show and Tell Feedback</legend>
+                    <Divider/>
                     <div>
                         <Field label="Team" defaultValue="" role="button" name="favoriteTeam" tabIndex="0" required="true" options={TEAMS} component={SelectFormGroup}/>
                     </div>
@@ -49,8 +37,12 @@ let SimpleForm = (props) => {
     );
 };
 
+SimpleForm.propTypes = {
+    pristine: PropTypes.bool.isRequired,
+    handleSubmit: PropTypes.func.isRequired
+};
+
 export default reduxForm({
     form: "simple",  // a unique identifier for this form
-    initialValues: { specialness: 50, awesomeSauce: 50, shortness: 50 },
-    onSubmit: ()=> console.log("Yarr!")
+    initialValues: { specialness: 50, awesomeSauce: 50, shortness: 50 }
 })(SimpleForm);

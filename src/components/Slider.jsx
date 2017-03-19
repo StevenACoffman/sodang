@@ -1,6 +1,8 @@
 import React, { PropTypes } from "react";
 import styled from "styled-components";
 import ControlLabel from "./ControlLabel";
+/* rgba(255, 164, 65, 0.2)  = #ffa441 */
+/* rgba(33,150,243, 0.2) = #2196F3 */
 
 const Slider = styled.input`
 -webkit-appearance: none;
@@ -80,11 +82,11 @@ margin: 18px 0;
 &:focus {
   outline: none; }
 &:active::-webkit-slider-thumb {
-  box-shadow: 0px 0px 0px 14px rgba(255, 164, 65, 0.2); }
+  box-shadow: 0px 0px 0px 14px rgba(33,150,243, 0.2); }
 &:active::-moz-range-thumb {
-  box-shadow: 0px 0px 0px 14px rgba(255, 164, 65, 0.2); }
+  box-shadow: 0px 0px 0px 14px rgba(33,150,243, 0.2); }
 &:active::-ms-thumb {
-  box-shadow: 0px 0px 0px 14px rgba(255, 164, 65, 0.2); }
+  box-shadow: 0px 0px 0px 14px rgba(33,150,243, 0.2); }
 &:disabled::-webkit-slider-thumb {
   width: 8px;
   height: 8px;

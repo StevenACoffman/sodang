@@ -1,8 +1,7 @@
-import React, { Component, PropTypes } from "react";
-import { connect } from "react-redux";
+import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import SimpleForm from "./components/SimpleForm.js";
+import SimpleForm from "./components/SimpleForm";
 import colors from "./components/colors";
 import {ping, postFeedback} from "./actions";
 
@@ -18,15 +17,11 @@ const showResults = (values, dispatch) =>
   });
 
 //passed onSubmit gets wrapped into handleSubmit prop
-let App = ({ dispatch }) => (
+//callback will be passed arguments values, dispatch, props (SimpleForm's props)
+let App = () => (
     <ThemeProvider theme={{ color: "mediumseagreen" }}>
-        <SimpleForm onSubmit={(values)=>showResults(values, dispatch)} />
+        <SimpleForm onSubmit={showResults} />
     </ThemeProvider>
-        );
+);
 
-
-App.propTypes = {
-    dispatch: PropTypes.func.isRequired
-};
-App = connect()(App);
 export default App;

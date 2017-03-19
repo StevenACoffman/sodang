@@ -3,11 +3,20 @@ Install recent node if not already done:
 curl -o- https://raw.github.com/creationix/nvm/master/install.sh | bash
 source ~/.bashrc
 nvm install 7
-npm install yarn
+```
+Install yarn globally if you haven't already:
+```bash
+npm install -g yarn
 ```
 
-Create nice application:
+Then install this application's dependencies and start it:
+```bash
+yarn install
+yarn start
 ```
+
+This is what I did to create this quality application:
+```bash
 yarn global add create-react-app
 APP_NAME=MyCoolApp
 create-react-app "${APP_NAME}"
@@ -23,7 +32,7 @@ yarn add jest enzyme react-addons-test-utils jest-enzyme --dev
 yarn add react-helmet redux-form
 
 #App specific components
-yarn add hedron reshake
+yarn add hedron styled-components reshake
 ```
 
 
@@ -1547,17 +1556,17 @@ When you build the project, Create React App will place the `public` folder cont
 2. Install `serve` by running `npm install --save serve`.
 
 3. Add this line to `scripts` in `package.json`:
-    
+
     ```
     "now-start": "serve build/",
     ```
-    
+
 4. Run `now` from your project directory. You will see a **now.sh** URL in your output like this:
-    
+
     ```
     > Ready! https://your-project-dirname-tpspyhtdtk.now.sh (copied to clipboard)
     ```
-    
+
     Paste that URL into your browser when the build is complete, and you will see your deployed app.
 
 Details are available in [this article.](https://zeit.co/blog/now-static)
