@@ -20,7 +20,7 @@ const showResults = (values, dispatch) =>
 //callback will be passed arguments values, dispatch, props (SimpleForm's props)
 let App = () => (
     <ThemeProvider theme={{ color: "mediumseagreen" }}>
-        <SimpleForm onSubmit={showResults} />
+        <SimpleForm onSubmit={(values, dispatch) => dispatch(postFeedback(values))} />
     </ThemeProvider>
 );
 

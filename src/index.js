@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {Provider} from "react-redux";
 import App from "./App";
 import store from "./containers/store";
+import {ping} from "./actions"
 import "./index.css";
-import {Provider} from "react-redux";
 
 ReactDOM.render(
     <Provider store={store}>
@@ -13,4 +14,4 @@ ReactDOM.render(
 );
 
 // initial state load dispatch would be most appropriate to put here.
-//store.dispatch(fetchListItems("70822"));
+store.dispatch(ping());
